@@ -1,6 +1,7 @@
 package co.edu.unisabana.parcialarquitectura.service;
 
 import co.edu.unisabana.parcialarquitectura.controller.dto.CheckpointDTO;
+import co.edu.unisabana.parcialarquitectura.repository.CheckpointDAO;
 import co.edu.unisabana.parcialarquitectura.service.model.Checkin;
 import co.edu.unisabana.parcialarquitectura.service.model.Checkout;
 import co.edu.unisabana.parcialarquitectura.repository.CheckpointPort;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class CheckpointService {
 
-  private CheckpointPort checkpointPort;
+  private CheckpointDAO checkpointPort;
 
   public void checkout(CheckpointDTO checkpoint) {
     Checkin lastCheckin = checkpointPort.findLastCheckin(checkpoint.driver, checkpoint.facility);
